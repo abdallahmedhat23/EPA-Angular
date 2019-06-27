@@ -1,0 +1,18 @@
+.emp-form{
+    background-color: #ededed;
+    padding: 20px;
+    border-radius: 10px;
+   
+}
+.validation-error{
+    color: red;
+}
+input.form-control, input.form-control:focus{
+    background-color: #ededed !important;
+    color: #162524 !important;
+}
+.sppiner{
+    position: absolute;
+    top: -44px;
+    left: 500px;
+}

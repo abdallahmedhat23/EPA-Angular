@@ -1,0 +1,86 @@
+<div class="example-container">
+  <mat-sidenav-container style="height: 100%;">
+    <mat-sidenav #sideNav>
+   
+        <mat-nav-list >
+          <div class="backcolor">
+              <a id="asdasd" style="height: 100px" (click)="togleArrow()" mat-list-item data-toggle="collapse"  href="#collapseExample" role="button" aria-expanded="false"
+              aria-controls="collapseExample">
+             
+                <ul id="asdasd" *ngIf="asd">
+                  <li> <i class="fa fa-user-o icon" aria-hidden="true"></i>
+                  <li style="color: white;"> 
+                   Welcome: {{asd.userName}}  <span class="fa"
+                    [class.fa-chevron-up]="arowvalue"
+                    [class.fa-chevron-down]="!arowvalue"
+                    (click)="togleArrow()"> </span></li>                   
+              </ul>
+            </a>
+          </div>
+          
+        </mat-nav-list>
+
+      
+      <div class="collapse" id="collapseExample" >
+        <div class="card card-body">
+            <ul *ngIf="asd">
+                <li> {{asd.userName}}</li>  
+                <li>{{asd.email}}</li>
+                <li>{{asd.fullName}}</li>
+            </ul>
+          <a class="backcolor" mat-raised-button color="warn" (click)="LogOut()" 
+          (click)="sideNav.toggle()" href="http://localhost:4200/products"  *ngIf="StatusOfUser"  >LogOut</a>
+        </div>
+     
+      </div>
+ <div style="height: 30px; background-color: #d7d5d5">  <span style="margin-left: 10px;">TAGS</span></div>
+      
+      <mat-nav-list (click)="sideNav.toggle()">
+        <a class="as" *ngIf="StatusOfUser" mat-list-item routerLink="">
+          <mat-icon>home</mat-icon> Home
+        </a>
+      </mat-nav-list>
+
+      <mat-nav-list (click)="sideNav.toggle()">
+        <a *ngIf="StatusOfUser" class="as" mat-list-item routerLink='/employees'>
+          <mat-icon>supervised_user_circle</mat-icon> Employees
+        </a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a *ngIf="StatusOfUser" class="as" mat-list-item (click)="sideNav.toggle()" routerLink="/products">
+          <mat-icon>
+            360
+          </mat-icon> Products
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="sideNav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="example-app-name">My App 
+          
+        </h1>
+        
+      </mat-toolbar>
+      <main style="min-height: 700px;margin-top: 50px;">
+        <router-outlet></router-outlet>
+      </main>
+
+    </mat-sidenav-content>
+
+
+  </mat-sidenav-container>
+
+</div>
+
+<div class="footer">
+<div class="row">
+  <div class="col-md-12">
+    <div class="" style="text-align: center; line-height: 50px">©Abdallah medhat 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/"> Abdallahmedhat.com</a>
+    </div>
+  </div>
+</div>
+</div>

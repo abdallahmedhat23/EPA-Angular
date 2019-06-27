@@ -1,0 +1,76 @@
+<div class="asd">
+  <div class="container" *ngIf="asdload">
+    <img src="assets\images\lo.gif" style="display: none;">
+  </div>
+
+  <div class="container" >
+
+      <div class="row">
+        <div class="col-md-12">
+          <div style="text-align: center">
+            <h2 class="jumbotron bg secondary text-white">Product Register</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><button mat-raised-button color="primary" (click)="pupupsavenew()"><i class="fa fa-plus-square"
+              aria-hidden="true"></i> Add</button></div>
+        <div class="col-md-11">
+          <mat-form-field>
+            <input matInput #name (keyup)="applyFilter(name.value)" placeholder="filter data">
+          </mat-form-field>
+        </div>
+      </div>
+      <table mat-table [dataSource]="dataSource" example-container matSort class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="ProductName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name. </th>
+          <td mat-cell *matCellDef="let element" (click)="populate(element)"> {{element.ProductName}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="ProductPeice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Price </th>
+          <td mat-cell *matCellDef="let element" (click)="populate(element)"> {{element.ProductPeice}} </td>
+        </ng-container>
+
+        <!-- edit Column -->
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+          <td mat-cell *matCellDef="let row" (click)="pupedit()"><button class="btn"  style="background-color: #3f51b5 !important ;color: white" >Edit</button> </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Button">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> delete </th>
+          <td mat-cell *matCellDef="let element" (click)="delete(element.ProductID)"><button
+              class="btn btn-danger">Delete</button> </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="passdata(row)" *matRowDef="let row ; columns: displayedColumns;"></tr>
+
+
+      </table>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>
+        </div>
+        
+
+      </div>
+
+
+
+    </div>
+
+
+
+  <mat-spinner class="sppiner" *ngIf="showspanner"></mat-spinner>

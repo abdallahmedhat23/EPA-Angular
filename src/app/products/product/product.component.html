@@ -1,0 +1,43 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <mat-toolbar class="asd">
+          <span *ngIf="create">Create New product</span>
+          <span *ngIf="update">update product</span>
+
+        <button class="btn-dialog-close" mat-stroked-button (click)="onClose()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-toolbar>
+      
+      <div class="container">
+        <form #myform="ngForm" (ngSubmit)="onsubmit(myform)" autocomplete="off">
+          <input type="hidden" class="form-control" #ProductID="ngModel"  name="ProductID"
+          [(ngModel)]="proservice.productmodel.ProductID" >
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" class="form-control" #ProductName="ngModel" required name="ProductName"
+              [(ngModel)]="proservice.productmodel.ProductName" >
+            <small class="error" *ngIf="ProductName.invalid && ProductName.touched">this is required</small>
+          </div>
+          <div class="form-group">
+            <label>Product Price</label>
+            <input type="text" class="form-control" #ProductPeice="ngModel" required name="ProductPeice"
+              [(ngModel)]="proservice.productmodel.ProductPeice">
+            <small class="error" *ngIf="ProductPeice.invalid && ProductPeice.touched">this is required</small>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 130px; margin: auto"  [disabled]="!ProductPeice.valid">Save</button>
+        
+        </form>
+      </div>
+      
+      <div>
+        <img src="assets\images\lo.gif">
+      </div></div>
+  </div>
+  
+  
+  
+
+
+  <mat-spinner class="sppiner" *ngIf="showspanner"></mat-spinner>

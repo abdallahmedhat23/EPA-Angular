@@ -1,0 +1,45 @@
+<form class="emp-form" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)"  autocomplete="off" >
+  <input type="hidden" name="EmployeeID" #EmployeeID="ngModel"
+    [(ngModel)]="employeeservice.selectedEmployee.EmployeeID">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" placeholder="First Name" name="FirstName" #FirstName="ngModel"
+        [(ngModel)]="employeeservice.selectedEmployee.FirstName" required>
+      <div class="validation-error " *ngIf="FirstName.invalid && FirstName.touched">This filed is required</div>
+
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" placeholder="Last Name" name="LastName" required #LastName="ngModel"
+        [(ngModel)]="employeeservice.selectedEmployee.LastName">
+      <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This filed is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Employee Code" name="EmpCode" #EmpCode="ngModel"
+      [(ngModel)]="employeeservice.selectedEmployee.EmpCode" required>
+    <div class="validation-error" *ngIf="EmpCode.invalid && EmpCode.touched">This filed is required</div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Employee Office" name="Office" #Office="ngModel"
+      [(ngModel)]="employeeservice.selectedEmployee.Office" required>
+    <div class="validation-error" *ngIf="Office.invalid && Office.touched">
+      This Office filed is required</div>
+
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!LastName.valid" type="submit" class="btn btn-lg btn-block btn-info"><i
+          class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="restForm(employeeForm)">
+        <i class="fa fa-repeat"></i> Rest</button>
+    </div>
+  </div>
+</form>
+<div class="spinner">
+
+  <mat-spinner class="sppiner" *ngIf="showspanner" ></mat-spinner>
+
+</div>
+
