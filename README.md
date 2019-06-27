@@ -1,4 +1,4 @@
-# AngularCURED
+# EPA using Angular and Rest api asp.net core
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
